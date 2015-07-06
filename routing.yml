@@ -1,0 +1,56 @@
+# Thread
+mibew_external_api_threads:
+    path: /external-api/v1/threads
+    defaults:
+        _controller: Mibew\Mibew\Plugin\ExternalApi\Controller\ThreadController::getThreadCollectionAction
+    methods: [GET]
+
+mibew_external_api_thread:
+    path: /external-api/v1/threads/{thread_id}
+    defaults:
+        _controller: Mibew\Mibew\Plugin\ExternalApi\Controller\ThreadController::getThreadAction
+    methods: [GET]
+    requirements:
+        thread_id: \d{1,10}
+
+mibew_external_api_thread_update:
+    path: /external-api/v1/threads/{thread_id}
+    defaults:
+        _controller: Mibew\Mibew\Plugin\ExternalApi\Controller\ThreadController::updateThreadAction
+    methods: [PUT]
+    requirements:
+        thread_id: \d{1,10}
+
+# Thread's messages
+mibew_external_api_messages:
+    path: /external-api/v1/threads/{thread_id}/messages
+    defaults:
+        _controller: Mibew\Mibew\Plugin\ExternalApi\Controller\MessageController::getMessageCollectionAction
+    methods: [GET]
+    requirements:
+        thread_id: \d{1,10}
+
+mibew_external_api_message_create:
+    path: /external-api/v1/threads/{thread_id}/messages
+    defaults:
+        _controller: Mibew\Mibew\Plugin\ExternalApi\Controller\MessageController::postMessageAction
+    methods: [POST]
+    requirements:
+        thread_id: \d{1,10}
+
+# Operators
+mibew_external_api_operator_ping:
+    path: /external-api/v1/operators/{operator_id}/ping
+    defaults:
+        _controller: Mibew\Mibew\Plugin\ExternalApi\Controller\OperatorController::pingAction
+    methods: [POST]
+    requirements:
+        operator_id: \d{1,10}
+
+mibew_external_api_operator_status:
+    path: /external-api/v1/operators/{operator_id}/status
+    defaults:
+        _controller: Mibew\Mibew\Plugin\ExternalApi\Controller\OperatorController::updateStatusAction
+    methods: [PUT]
+    requirements:
+        operator_id: \d{1,10}
