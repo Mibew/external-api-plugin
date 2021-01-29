@@ -1,5 +1,6 @@
 # Do not index node.js modules that are used for building
 node_modules
+package-lock.json
 
 # Do not index releases
 release
